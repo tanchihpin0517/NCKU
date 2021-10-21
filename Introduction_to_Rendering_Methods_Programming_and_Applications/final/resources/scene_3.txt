@@ -1,0 +1,12 @@
+#
+# sphere mass(m (kg)) radius(r (m)) position(x y z (m)) velocity(x, y ,z (m)) movable texture_file
+#
+# cube mass(m (kg)) side(x, y, z (m)) position(x y z (m)) velocity(x, y ,z (m)) movable texture_file
+#
+sphere    1.0    2.0    0.0 0.0 0.0    0.0 0.0 0.0    1    resources/texture/earth.jpg
+sphere    1.0    1.0    7.0 0.0 1.0    0.0 0.0 0.0    1    resources/texture/moon.jpg
+sphere    1.0    1.0    5.0 0.0 3.0    0.0 0.0 0.0    1    resources/texture/moon.jpg
+sphere    1.0    1.0    3.0 0.0 5.0    0.0 0.0 0.0    1    resources/texture/moon.jpg
+sphere    1.0    1.0    1.0 0.0 7.0    0.0 0.0 0.0    1    resources/texture/moon.jpg
+sphere    1.0    1.0    9.0 0.0 -1.0    0.0 0.0 0.0    1    resources/texture/moon.jpg
+cube    0.0    100.0 100.0 0.01    0.0 0.0 -5.0    0.0 0.0 0.0    0    resources/texture/grey.png
