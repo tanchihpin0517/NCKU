@@ -9,6 +9,8 @@
 */
 
 #include "Oscilloscope.h"
+#include <cmath>
+#include "Util.h"
 
 namespace oscilloscope
 {
@@ -24,7 +26,7 @@ void init(int block_size)
 Oscilloscope::Oscilloscope(MySynthAudioProcessor& p)
     : _processor(p)
 {
-    startTimerHz(10);
+    startTimerHz(30);
 }
 
 Oscilloscope::~Oscilloscope() {}
@@ -48,17 +50,10 @@ void Oscilloscope::timerCallback() { repaint(); }
 
 void Oscilloscope::drawWave(juce::Graphics& g)
 {
-    auto sample = buffer.read();
+    auto samples = buffer.read();
     auto bounds = getLocalBounds();
-    auto top = bounds.getY();
-    auto bottom = bounds.getHeight();
-
-    juce::Path path;
-    path.startNewSubPath(0, juce::jmap(sample[0], -1.0f, 1.0f, (float)bottom, (float)top));
-    for (int i=1; i<sample.size(); i++) {
-        path.lineTo(i, juce::jmap(sample[i], -1.0f, 1.0f, (float)bottom, (float)top));
-    }
-    g.strokePath(path, juce::PathStrokeType(1.0));
+    
+    util::drawPath(g, bounds, samples);
 }
 
 }

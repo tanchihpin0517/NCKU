@@ -15,7 +15,7 @@ MySynthAudioProcessorEditor::MySynthAudioProcessorEditor (MySynthAudioProcessor&
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
-    setSize (1200, 900);
+    setSize (800, 600);
 
     for (auto& comp : _components) {
         addAndMakeVisible(comp);
@@ -41,8 +41,8 @@ void MySynthAudioProcessorEditor::resized()
 
     juce::FlexBox upFlexBox;
     upFlexBox.flexDirection = juce::FlexBox::Direction::row;
-    upFlexBox.items.add(juce::FlexItem(_spectrogram).withFlex(1.0f));
     upFlexBox.items.add(juce::FlexItem(_oscilloscope).withFlex(1.0f));
+    upFlexBox.items.add(juce::FlexItem(_spectrogram).withFlex(1.0f));
 
     juce::FlexBox bottomFlexBox;
     bottomFlexBox.flexDirection = juce::FlexBox::Direction::row;

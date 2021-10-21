@@ -16,8 +16,7 @@ Buffer::Buffer() {}
 Buffer::Buffer(int size)
 {
     for (int i=0; i<2; i++) {
-        _wbuf[i].resize(size);
-        std::fill(_wbuf[i].begin(), _wbuf[i].end(), 0);
+        _wbuf[i].assign(size, 0);
     }
     _wcur = 0;
     _rdone = false;
