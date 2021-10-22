@@ -12,6 +12,7 @@
 #include "SynthVoice.h"
 #include "WaveTable.h"
 #include "Oscilloscope.h"
+#include "Spectrogram.h"
 
 //==============================================================================
 MySynthAudioProcessor::MySynthAudioProcessor()
@@ -120,6 +121,7 @@ void MySynthAudioProcessor::prepareToPlay (double sampleRate, int samplesPerBloc
 
     wavetable::init();
     oscilloscope::init(getBlockSize());
+    spectrogram::init(getBlockSize());
 }
 
 void MySynthAudioProcessor::releaseResources()
@@ -187,6 +189,7 @@ void MySynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer, juce
         temp[i] = buffer.getSample(0, i);
     }
     oscilloscope::buffer.write(temp);
+    spectrogram::buffer.write(temp);
 }
 
 //==============================================================================
