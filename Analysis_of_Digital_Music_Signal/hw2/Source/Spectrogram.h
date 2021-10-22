@@ -45,6 +45,10 @@ private:
     
     void drawGrid(juce::Graphics& g);
     void drawSpectrogram(juce::Graphics& g);
+    void drawLabels(juce::Graphics& g);
+    
+    juce::Rectangle<int> getRenderArea();
+    juce::Rectangle<int> getAnalysisArea();
 };
 
 }
