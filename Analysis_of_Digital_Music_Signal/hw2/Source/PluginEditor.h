@@ -12,6 +12,7 @@
 #include "PluginProcessor.h"
 #include "Spectrogram.h"
 #include "Oscilloscope.h"
+#include "Controller.h"
 #include <vector>
 
 //==============================================================================
@@ -33,7 +34,8 @@ private:
     MySynthAudioProcessor& _audioProcessor;
     oscilloscope::Oscilloscope _oscilloscope;
     spectrogram::Spectrogram _spectrogram;
-    std::vector<juce::Component*> _components {&_oscilloscope, &_spectrogram};
+    Controller _controller;
+    std::vector<juce::Component*> _components {&_oscilloscope, &_spectrogram, &_controller};
 
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (MySynthAudioProcessorEditor)
 };

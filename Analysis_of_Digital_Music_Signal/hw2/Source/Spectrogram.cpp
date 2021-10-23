@@ -88,10 +88,11 @@ void Spectrogram::drawSpectrogram(juce::Graphics& g)
     juce::Path path;
     auto fft_data_db = util::mapLinear(fft_data, n_inf, 0.0, bottom, top);
     path.startNewSubPath(0, fft_data_db[0]);
-    for (int i=0; i<fft_data.size(); i++) {
+    for (int i=1; i<fft_data.size(); i++) {
         auto freq = i * w_bins;
         int x = std::floor(juce::mapFromLog10(freq, 20.0, 20000.0) * (right - left));
         path.lineTo(x, fft_data_db[i]);
+        //path.lineTo(juce::jmap((float)i, 0.0f, (float)fft_data.size(), 0.0f, float(right-left)), fft_data_db[i]);
     }
     g.strokePath(path, juce::PathStrokeType(1.0));
     //util::drawPath(g, bounds, fft_data);

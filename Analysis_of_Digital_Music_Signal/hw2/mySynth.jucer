@@ -5,6 +5,8 @@
               pluginCharacteristicsValue="pluginIsSynth,pluginWantsMidiIn">
   <MAINGROUP id="rgEg6o" name="mySynth">
     <GROUP id="{85E5C708-EFEB-4008-56DD-2BCC889A4F4E}" name="Source">
+      <FILE id="y6hFSE" name="Controller.cpp" compile="1" resource="0" file="Source/Controller.cpp"/>
+      <FILE id="kTMbHg" name="Controller.h" compile="0" resource="0" file="Source/Controller.h"/>
       <FILE id="ASvxLh" name="Util.cpp" compile="1" resource="0" file="Source/Util.cpp"/>
       <FILE id="ToPDcl" name="Util.h" compile="0" resource="0" file="Source/Util.h"/>
       <FILE id="mRktQc" name="Buffer.cpp" compile="1" resource="0" file="Source/Buffer.cpp"/>

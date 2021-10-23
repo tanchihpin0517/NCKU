@@ -11,7 +11,8 @@
 
 //==============================================================================
 MySynthAudioProcessorEditor::MySynthAudioProcessorEditor (MySynthAudioProcessor& p)
-    : AudioProcessorEditor (&p), _audioProcessor (p), _oscilloscope(p), _spectrogram(p)
+    : AudioProcessorEditor (&p), _audioProcessor (p),
+      _oscilloscope(p), _spectrogram(p), _controller(p)
 {
     // Make sure that before the constructor has finished, you've set the
     // editor's size to whatever you need it to be.
@@ -37,8 +38,6 @@ void MySynthAudioProcessorEditor::resized()
 {
     // This is generally where you'll want to lay out the positions of any
     // subcomponents in your editor..
-    auto area = getLocalBounds();
-
     juce::FlexBox upFlexBox;
     upFlexBox.flexDirection = juce::FlexBox::Direction::row;
     upFlexBox.items.add(juce::FlexItem(_oscilloscope).withFlex(1.0f));
@@ -46,12 +45,13 @@ void MySynthAudioProcessorEditor::resized()
 
     juce::FlexBox bottomFlexBox;
     bottomFlexBox.flexDirection = juce::FlexBox::Direction::row;
+    bottomFlexBox.items.add(juce::FlexItem(_controller).withFlex(1.0f));
 
     juce::FlexBox flexBox;
     flexBox.flexDirection = juce::FlexBox::Direction::column;
     flexBox.items.add(juce::FlexItem(upFlexBox).withFlex(3.0f));
     flexBox.items.add(juce::FlexItem(bottomFlexBox).withFlex(1.0f));
-    flexBox.performLayout(area.reduced(10));
+    flexBox.performLayout(getLocalBounds().reduced(10));
 
     for (auto& comp : _components) {
         comp->setBounds(comp->getBounds().reduced(3));
